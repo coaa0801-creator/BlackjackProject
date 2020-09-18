@@ -2,10 +2,10 @@ package com.skilldistillery.common.BlackjackGame;
 
 public class Casino {
 
-	public void runBlackjackGame() {
+	public String runBlackjackGame() {
 		BlackjackGame table1 = new BlackjackGame();
-		table1.playGame();
-		// TODO Auto-generated method stub
+		String menu = table1.playGame();
+		return menu;
 		
 	}
 
