@@ -61,9 +61,13 @@ public class BlackjackPlayer {
 							+"<===========================================>");
 		
 	}
-	public boolean isBlackjack() {
+	public boolean isBlackjack(BlackjackHand player) {
 		boolean blackjack = false;
-		if (hand.getHandValue() == 21) {
+//		int test21 = 21;
+//		if (test21 == 21) {
+//		blackjack = true;
+//		}
+		if (player.getHandValue() == 21) {
 			blackjack = true;
 		}
 		return blackjack;

@@ -20,7 +20,7 @@ public class GamePlayTable {
 	// | | | ♥ |
 	// | ♥ |__4|
 	public void showCurrentTable(int numCardsinDeck, BlackjackHand player1, BlackjackHand player2, BlackjackHand player3,
-			BlackjackHand player4, BlackjackHand player5, BlackjackHand player6, BlackjackHand dealer, boolean dealerNoShow) {
+			BlackjackHand player4, BlackjackHand player5, BlackjackHand player6, BlackjackHand dealer, boolean dealerNoShow, String player1Result, String player2Result, String player3Result, String player4Result, String player5Result, String player6Result) {
 		seat1 = player1;
 		seat2 = player2;
 		seat3 = player3;
@@ -83,7 +83,7 @@ public class GamePlayTable {
 				"\n<==========================================================================================================>\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                   DEALER                                                  |\n"
-						+ "|      SEAT 6                                                                                  SEAT 1       |\n"
+						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
 						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                        " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
 						+ "|                                        " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
@@ -96,10 +96,10 @@ public class GamePlayTable {
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
-						+ "|      SEAT 5                                                                                  SEAT 2       |\n"
+						+ "|    " + player5Result + "                                                                          " + player2Result + " |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
-						+ "|                            SEAT 4                                    SEAT 3                               |\n"
+						+ "|                          " + player4Result + "                               " + player3Result + "                      |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
