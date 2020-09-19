@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.skilldistillery.common.cards.Deck;
 
 public class BlackjackDealer {
+	private BlackjackHand anyPlayer = new BlackjackHand();
 	private BlackjackHand player1 = new BlackjackHand();
 	private BlackjackHand player2 = new BlackjackHand();
 	private BlackjackHand player3 = new BlackjackHand();
@@ -20,6 +21,13 @@ public class BlackjackDealer {
 		this.blackjackDeck = blackJackDeck; 
 	}
 
+	public BlackjackHand dealOneCard(BlackjackHand player) {
+		this.anyPlayer = player;
+		this.anyPlayer.addCard(blackjackDeck.dealCard());
+		return anyPlayer;
+		
+	}
+	
 	public void dealStartHands(boolean player1, boolean player2,boolean player3, boolean player4,boolean player5, boolean player6) {
 //		System.out.println(blackjackDeck.checkDeckSize());check deck size
 		int count = 0;
@@ -30,19 +38,19 @@ public class BlackjackDealer {
 				this.player1.addCard(blackjackDeck.dealCard());
 			}
 			if (player2) {
-				this.player1.addCard(blackjackDeck.dealCard());
+				this.player2.addCard(blackjackDeck.dealCard());
 			}
 			if (player3) {
-				this.player1.addCard(blackjackDeck.dealCard());
+				this.player3.addCard(blackjackDeck.dealCard());
 			}
 			if (player4) {
-				this.player1.addCard(blackjackDeck.dealCard());
+				this.player4.addCard(blackjackDeck.dealCard());
 			}
 			if (player5) {
-				this.player1.addCard(blackjackDeck.dealCard());
+				this.player5.addCard(blackjackDeck.dealCard());
 			}
 			if (player6) {
-				this.player1.addCard(blackjackDeck.dealCard());
+				this.player5.addCard(blackjackDeck.dealCard());
 			}
 			dealer.addCard(blackjackDeck.dealCard());
 		}

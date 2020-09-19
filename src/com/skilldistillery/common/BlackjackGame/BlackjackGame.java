@@ -16,6 +16,8 @@ public class BlackjackGame {
 	private BlackjackHand player4;
 	private BlackjackHand player5;
 	private BlackjackHand player6;
+	private BlackjackPlayer user1 = new BlackjackPlayer(player1);
+	private String player1Result;
 
 	public String startGame() {
 		String menu = "quit";
@@ -56,7 +58,7 @@ public class BlackjackGame {
 				boolean player4 = false;
 				boolean player5 = false;
 				boolean player6 = false;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "2":
@@ -67,7 +69,7 @@ public class BlackjackGame {
 				player4 = false;
 				player5 = false;
 				player6 = false;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "3":
@@ -78,7 +80,7 @@ public class BlackjackGame {
 				player4 = false;
 				player5 = false;
 				player6 = false;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "4":
@@ -89,7 +91,7 @@ public class BlackjackGame {
 				player4 = true;
 				player5 = false;
 				player6 = false;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "5":
@@ -100,7 +102,7 @@ public class BlackjackGame {
 				player4 = true;
 				player5 = true;
 				player6 = false;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "6":
@@ -111,7 +113,7 @@ public class BlackjackGame {
 				player4 = true;
 				player5 = true;
 				player6 = true;
-				playHand(player1, player2, player3, player4, player5, player6);
+				playFullTableHand(player1, player2, player3, player4, player5, player6);
 				keepGoing = false;
 				break;
 			case "7":
@@ -153,17 +155,39 @@ public class BlackjackGame {
 		return null;
 	}
 
-	private void playHand(boolean player1, boolean player2, boolean player3, boolean player4, boolean player5,
+	private void playFullTableHand(boolean player1, boolean player2, boolean player3, boolean player4, boolean player5,
 			boolean player6) {
 //		System.out.println(blackJackDeck.checkDeckSize()); check card amount
+		boolean dealerNoShow = true;
 		int startNumCards = blackJackDeck.checkDeckSize();
+		
 		blackJackDeck.shuffle();
 		blackJackDeck.dealCard(); //burn card in BlackJack
 		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
 		this.player1 = table1Dealer.getPlayer1();
 		this.dealer = table1Dealer.getDealer();
-		table.showCurrentTable(this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
-				dealer);
+		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
+				dealer, dealerNoShow);
+		
+		if (player1) {
+			boolean playerTurn = true;
+			if (user1.isBlackjack()) {
+				playerTurn = false;
+				player1Result = "BLACKJACK!!";
+			}
+			while (playerTurn) {
+				while (this.player1.getHandValue() < 21) {
+					String choice =	user1.hitOrStay(this.player1);
+					if (choice.equals("hit")){
+						this.player1 = table1Dealer.dealOneCard(this.player1);
+			}
+					else if (choice.equals("stay")) {
+						playerTurn = false;
+								break;
+					}
+			}
+			}
+		}
 
 	}
 
