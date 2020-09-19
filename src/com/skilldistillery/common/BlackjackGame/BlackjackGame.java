@@ -28,7 +28,7 @@ public class BlackjackGame {
 	private String player4Result = "  SEAT OPEN   ";
 	private String player5Result = "  SEAT OPEN   ";
 	private String player6Result = "  SEAT OPEN   ";
-
+//                                 = "BLACKJACK!!"
 	public String startGame() {
 		String menu = "quit";
 		playerChooseNumberDecks();
@@ -260,7 +260,7 @@ public class BlackjackGame {
 			boolean playerTurn = true;
 			if (user1.isBlackjack(this.player1)) {
 				playerTurn = false;
-				player1Result = "BLACKJACK!!";
+				player1Result = "BLACKJACK!!   ";
 			}
 			while (playerTurn) {
 				while (this.player1.getHandValue() < 21) {
@@ -281,7 +281,7 @@ public class BlackjackGame {
 		boolean playerTurn = true;
 		if (user2.isBlackjack(this.player2)) {
 			playerTurn = false;
-			player2Result = "BLACKJACK!!";
+			player2Result = "BLACKJACK!!   ";
 		}
 		while (playerTurn) {
 			while (this.player2.getHandValue() < 21) {
@@ -301,7 +301,7 @@ public class BlackjackGame {
 		boolean playerTurn = true;
 		if (user3.isBlackjack(this.player3)) {
 			playerTurn = false;
-			player3Result = "BLACKJACK!!";
+			player3Result = "BLACKJACK!!   ";
 		}
 		while (playerTurn) {
 			while (this.player3.getHandValue() < 21) {
@@ -320,7 +320,7 @@ public class BlackjackGame {
 		boolean playerTurn = true;
 		if (user4.isBlackjack(this.player4)) {
 			playerTurn = false;
-			player4Result = "BLACKJACK!!";
+			player4Result = "BLACKJACK!!   ";
 		}
 		while (playerTurn) {
 			while (this.player4.getHandValue() < 21) {
@@ -340,7 +340,7 @@ public class BlackjackGame {
 		boolean playerTurn = true;
 		if (user5.isBlackjack(this.player5)) {
 			playerTurn = false;
-			player5Result = "BLACKJACK!!";
+			player5Result = "BLACKJACK!!   ";
 		}
 		while (playerTurn) {
 			while (this.player5.getHandValue() < 21) {
@@ -359,7 +359,7 @@ public class BlackjackGame {
 		boolean playerTurn = true;
 		if (user6.isBlackjack(this.player6)) {
 			playerTurn = false;
-			player5Result = "BLACKJACK!!";
+			player5Result = "BLACKJACK!!   ";
 		}
 		while (playerTurn) {
 			while (this.player6.getHandValue() < 21) {
