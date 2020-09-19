@@ -67,7 +67,7 @@ public class GamePlayTable {
 			}
 		} catch (IndexOutOfBoundsException e) {
 			topOfCard[a] = "     ";
-			cardNumUpLeft[a] = "    ";
+			cardNumUpLeft[a] = "     ";
 			cardSuitMid[a] = "     ";
 			cardNumBotRt[a] = "     ";
 			dealerCount++;
@@ -85,7 +85,7 @@ public class GamePlayTable {
 						+ "|                                                   DEALER                                                  |\n"
 						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
-						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                        " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
+						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                      " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
 						+ "|                                        " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
 						+ "|                                        " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
 						+ "|                                                                                                           |\n"
