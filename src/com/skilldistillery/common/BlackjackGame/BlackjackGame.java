@@ -211,11 +211,6 @@ public class BlackjackGame {
 		blackJackDeck.dealCard(); //burn card in BlackJack
 		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
 		this.player1 = table1Dealer.getPlayer1();
-		this.player2 = table1Dealer.getPlayer2();
-		this.player3 = table1Dealer.getPlayer3();
-		this.player4 = table1Dealer.getPlayer4();
-		this.player5 = table1Dealer.getPlayer5();
-		this.player6 = table1Dealer.getPlayer6();
 		this.dealer = table1Dealer.getDealer();
 		int counter = 1;
 		
@@ -225,27 +220,32 @@ public class BlackjackGame {
 		counter++;
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player2 = userMoves(this.player2,counter);
+		if(player2) {this.player2 = table1Dealer.getPlayer2();
+		this.player2 = userMoves(this.player2,counter);}
 		counter++;
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player3 = userMoves(this.player3,counter);
+		if(player3) {this.player3 = table1Dealer.getPlayer3();
+		this.player3 = userMoves(this.player3,counter);}
 		counter++;
 		
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player4 = userMoves(this.player4,counter);
+		if (player4) {this.player4 = table1Dealer.getPlayer4();
+		this.player4 = userMoves(this.player4,counter);}
 		counter++;
 	
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player5 = userMoves(this.player5,counter);
+		if (player5) {this.player5 = table1Dealer.getPlayer5();
+		this.player5 = userMoves(this.player5,counter);}
 		counter++;
 		
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
 		
-		this.player6 = userMoves(this.player6,counter);
+		if(player6) {this.player6 = table1Dealer.getPlayer6();
+		this.player6 = userMoves(this.player6,counter);}
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
 		
