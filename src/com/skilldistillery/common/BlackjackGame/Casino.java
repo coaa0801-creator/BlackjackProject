@@ -4,7 +4,7 @@ public class Casino {
 
 	public String runBlackjackGame() {
 		BlackjackGame table1 = new BlackjackGame();
-		String menu = table1.playGame();
+		String menu = table1.startGame();
 		return menu;
 		
 	}

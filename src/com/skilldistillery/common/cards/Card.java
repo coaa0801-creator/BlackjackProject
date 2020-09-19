@@ -17,6 +17,10 @@ public class Card {
 	public int getValue() {
 			return value.getValue();
 	}
+
+	public Suit getSuit() {
+		return suit;
+	}
 	
 	
 

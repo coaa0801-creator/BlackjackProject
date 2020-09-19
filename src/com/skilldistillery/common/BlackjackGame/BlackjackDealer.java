@@ -5,19 +5,79 @@ import java.util.Scanner;
 import com.skilldistillery.common.cards.Deck;
 
 public class BlackjackDealer {
-	
-	Scanner kb = new Scanner(System.in);
+	private BlackjackHand player1 = new BlackjackHand();
+	private BlackjackHand player2 = new BlackjackHand();
+	private BlackjackHand player3 = new BlackjackHand();
+	private BlackjackHand player4 = new BlackjackHand();
+	private BlackjackHand player5 = new BlackjackHand();
+	private BlackjackHand player6 = new BlackjackHand();
+	private BlackjackHand dealer = new BlackjackHand();
 
-	public void dealCards(Deck blackjackDeck) {
-		System.out.println(blackjackDeck.checkDeckSize());
-		
-//		System.out.println(blackJackDeck.checkDeckSize()); in case of deck error
+	Scanner kb = new Scanner(System.in);
+	private Deck blackjackDeck;
+
+	public BlackjackDealer(Deck blackJackDeck) {
+		this.blackjackDeck = blackJackDeck; 
 	}
-	
-	
-	
-	
-	
+
+	public void dealStartHands(boolean player1, boolean player2,boolean player3, boolean player4,boolean player5, boolean player6) {
+//		System.out.println(blackjackDeck.checkDeckSize());check deck size
+		int count = 0;
+		while (count < 2) {
+			count++;
+			if (player1) {
+//				System.out.println(blackjackDeck.dealCard());
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			if (player2) {
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			if (player3) {
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			if (player4) {
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			if (player5) {
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			if (player6) {
+				this.player1.addCard(blackjackDeck.dealCard());
+			}
+			dealer.addCard(blackjackDeck.dealCard());
+		}
+
+//		System.out.println(blackJackDeck.checkDeckSize()); in case of deck error
+
+	}
+
+	public BlackjackHand getPlayer1() {
+		return player1;
+	}
+
+	public BlackjackHand getDealer() {
+		return dealer;
+	}
+
+	public BlackjackHand getPlayer2() {
+		return player2;
+	}
+
+	public BlackjackHand getPlayer3() {
+		return player3;
+	}
+
+	public BlackjackHand getPlayer4() {
+		return player4;
+	}
+
+	public BlackjackHand getPlayer5() {
+		return player5;
+	}
+
+	public BlackjackHand getPlayer6() {
+		return player6;
+	}
 
 }
 

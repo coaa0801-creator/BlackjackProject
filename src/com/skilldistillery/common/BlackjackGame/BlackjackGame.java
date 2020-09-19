@@ -5,20 +5,37 @@ import java.util.Scanner;
 import com.skilldistillery.common.cards.Deck;
 
 public class BlackjackGame {
-	BlackjackDealer table1Dealer = new BlackjackDealer();	
-	Deck blackJackDeck = new Deck();
+	private Deck blackJackDeck = new Deck();
 	Scanner kb = new Scanner(System.in);
+	private GamePlayTable table = new GamePlayTable();
+	private BlackjackDealer table1Dealer = new BlackjackDealer(blackJackDeck);	
+	private BlackjackHand player1;
+	private BlackjackHand dealer;
+	private BlackjackHand player2;
+	private BlackjackHand player3;
+	private BlackjackHand player4;
+	private BlackjackHand player5;
+	private BlackjackHand player6;
 	
-	public String playGame() {
+	
+	public String startGame() {
 		String menu = "quit";
 		playerChooseNumberDecks();
-
 		boolean playGame = true;
 		if (blackJackDeck == null) {
 			playGame = false;
 		}
 		while (playGame) {
-			table1Dealer.dealCards(blackJackDeck);
+			boolean player1 = true;
+			boolean player2 = false;
+			boolean player3 = false;
+			boolean player4 = false;
+			boolean player5 = false;
+			boolean player6 = false;
+			menu = userChoosePlayerAmount();
+			if (menu.equals("quit")) {
+				playGame = false;
+			}
 		
 		
 		
@@ -26,7 +43,6 @@ public class BlackjackGame {
 		}		
 	
 		
-//		blackJackDeck.addMoreDecks(userInput);
 		
 		
 		
@@ -36,6 +52,133 @@ public class BlackjackGame {
 	
 	
 	
+	private String userChoosePlayerAmount() {
+		String menu = "";
+		boolean keepGoing = true;
+		while (keepGoing) {
+			userChoosePlayerAmountMenu();
+			String userChoice = kb.nextLine().toLowerCase();
+		switch (userChoice) {
+		case "1": case "one":
+			boolean player1 = true;
+			boolean player2 = false;
+			boolean player3 = false;
+			boolean player4 = false;
+			boolean player5 = false;
+			boolean player6 = false;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;
+		case "2": case "two":
+			player1 = true;
+			player2 = true;
+			player3 = false;
+			player4 = false;
+			player5 = false;
+			player6 = false;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;			
+		case "3": case "three":
+			player1 = true;
+			player2 = true;
+			player3 = true;
+			player4 = false;
+			player5 = false;
+			player6 = false;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;			
+		case "4": case "four":
+			player1 = true;
+			player2 = true;
+			player3 = true;
+			player4 = true;
+			player5 = false;
+			player6 = false;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;			
+		case "5": case "five":
+			player1 = true;
+			player2 = true;
+			player3 = true;
+			player4 = true;
+			player5 = true;
+			player6 = false;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;			
+		case "6": case "six":
+			player1 = true;
+			player2 = true;
+			player3 = true;
+			player4 = true;
+			player5 = true;
+			player6 = true;
+			playGame(player1, player2, player3, player4, player5, player6);
+			keepGoing = false;
+			break;
+		case "7": case "quit":
+		keepGoing = false;
+		menu = "quit";
+		break;
+			
+		default: 
+			System.out.println("Please pick a number from the list");
+		}
+		}
+		
+		return menu;
+	}
+
+
+
+	private String userChoosePlayerAmountMenu() {
+		System.out.println("\n<===========================================>");
+		System.out.println("|                            _____          |\n" + 
+				"|                    _____  |K  WW|         |\n" + 
+				"|            _____  |Q  ww| |   {)|         |\n" + 
+				"|     _____ |J  ww| |   {(| |(v)%%| _____   |\n" + 
+				"|    |10 v ||   {)| |(v)%%| | v%%%||A_ _ |  |\n" + 
+				"|    |v v v||(v)% | | v%%%| |_%%%>||( v )|  |\n" + 
+				"|    |v v v|| v % | |_%%%O|        | \\ / |  |\n" + 
+				"|    |v v v||__%%[|                |  .  |  |\n" + 
+				"|    |___0I|                       |____V|  |\n" + 
+				"|                                           |");
+		System.out.println("|          HOW MANY PLAYERS WOULD           |");
+		System.out.println("|          YOU LIKE TO PLAY WITH?           |");
+		System.out.println("|                                           |");
+		System.out.println("|             1: 1 PLAYERS                  |");
+		System.out.println("|             2: 2 PLAYERS                  |");
+		System.out.println("|             3: 3 PLAYERS                  |");
+		System.out.println("|             4: 4 PLAYERS                  |");
+		System.out.println("|             5: 5 PLAYERS                  |");
+		System.out.println("|             6: 6 PLAYERS                  |");
+		System.out.println("|                                           |");
+		System.out.println("|             QUIT: QUIT GAME               |");
+		System.out.println("|                                           |");
+		System.out.println("<===========================================>");
+		
+		return null;
+	}
+
+
+
+	private void playGame(boolean player1, boolean player2,boolean player3, boolean player4,boolean player5, boolean player6) {
+//		System.out.println(blackJackDeck.checkDeckSize()); check card amount
+		int startNumCards = blackJackDeck.checkDeckSize();
+		blackJackDeck.shuffle();
+		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
+		this.player1 = table1Dealer.getPlayer1();
+		this.dealer = table1Dealer.getDealer(); 
+		table.showCurrentTable(this.player1, this.player2, this.player3, this.player4, this.player5, this.player6, dealer);
+		
+		
+	}
+
+
+
 	private Deck playerChooseNumberDecks() {
 		boolean keepGoing = true;
 		while (keepGoing) {
@@ -66,7 +209,7 @@ public class BlackjackGame {
 			keepGoing = false;
 			break;
 		default: 
-			System.out.println("Please the number from the list");
+			System.out.println("Please pick a number from the list");
 		}
 		}
 		return blackJackDeck;
