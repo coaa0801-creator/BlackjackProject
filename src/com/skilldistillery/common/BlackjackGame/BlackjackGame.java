@@ -17,17 +17,17 @@ public class BlackjackGame {
 	private BlackjackHand player5;
 	private BlackjackHand player6;
 	private BlackjackPlayer user1 = new BlackjackPlayer(player1);
+	private BlackjackPlayer user2 = new BlackjackPlayer(player2);;
+	private BlackjackPlayer user3 = new BlackjackPlayer(player3);;
+	private BlackjackPlayer user4 = new BlackjackPlayer(player4);;
+	private BlackjackPlayer user5 = new BlackjackPlayer(player5);;
+	private BlackjackPlayer user6 = new BlackjackPlayer(player6);;
 	private String player1Result = "  SEAT OPEN   ";
 	private String player2Result = "  SEAT OPEN   ";
 	private String player3Result = "  SEAT OPEN   ";
 	private String player4Result = "  SEAT OPEN   ";
 	private String player5Result = "  SEAT OPEN   ";
 	private String player6Result = "  SEAT OPEN   ";
-	private BlackjackPlayer user2;
-	private BlackjackPlayer user3;
-	private BlackjackPlayer user4;
-	private BlackjackPlayer user5;
-	private BlackjackPlayer user6;
 
 	public String startGame() {
 		String menu = "quit";
@@ -211,32 +211,41 @@ public class BlackjackGame {
 		blackJackDeck.dealCard(); //burn card in BlackJack
 		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
 		this.player1 = table1Dealer.getPlayer1();
+		this.player2 = table1Dealer.getPlayer2();
+		this.player3 = table1Dealer.getPlayer3();
+		this.player4 = table1Dealer.getPlayer4();
+		this.player5 = table1Dealer.getPlayer5();
+		this.player6 = table1Dealer.getPlayer6();
 		this.dealer = table1Dealer.getDealer();
+		int counter = 1;
 		
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player1 = userMoves(this.player1,player1, player2, player3, player4, player5, player6);
-
+		this.player1 = userMoves(this.player1,counter);
+		counter++;
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player2 = userMoves(this.player2,player1, player2, player3, player4, player5, player6);
+		this.player2 = userMoves(this.player2,counter);
+		counter++;
+		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
+				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
+		this.player3 = userMoves(this.player3,counter);
+		counter++;
+		
+		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
+				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
+		this.player4 = userMoves(this.player4,counter);
+		counter++;
 	
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player3 = userMoves(this.player3,player1, player2, player3, player4, player5, player6);
+		this.player5 = userMoves(this.player5,counter);
+		counter++;
 		
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		this.player4 = userMoves(this.player4,player1, player2, player3, player4, player5, player6);
-	
-		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
-				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
 		
-		this.player5 = userMoves(this.player5,player1, player2, player3, player4, player5, player6);
-		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
-				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
-		
-		this.player6 = userMoves(this.player6,player1, player2, player3, player4, player5, player6);
+		this.player6 = userMoves(this.player6,counter);
 		table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5, this.player6,
 				dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result, player5Result, player6Result);
 		
@@ -244,9 +253,10 @@ public class BlackjackGame {
 
 	}
 
-	private BlackjackHand userMoves(BlackjackHand player, boolean player1, boolean player2, boolean player3, boolean player4, boolean player5, boolean player6) {
+	private BlackjackHand userMoves(BlackjackHand player,int counter) {
+		 
 		BlackjackHand playerUp = player;
-		if (player1) {
+		if (counter == 1) {
 			boolean playerTurn = true;
 			if (user1.isBlackjack(this.player1)) {
 				playerTurn = false;
@@ -267,7 +277,7 @@ public class BlackjackGame {
 			}
 		}
 	
-	if (player2) {
+		else if (counter == 2) {
 		boolean playerTurn = true;
 		if (user2.isBlackjack(this.player2)) {
 			playerTurn = false;
@@ -287,7 +297,7 @@ public class BlackjackGame {
 		}
 	}
 
-	if (player3) {
+		else if (counter == 3) {
 		boolean playerTurn = true;
 		if (user3.isBlackjack(this.player3)) {
 			playerTurn = false;
@@ -306,7 +316,7 @@ public class BlackjackGame {
 			}
 		}
 	}
-	if (player4) {
+		else if (counter == 4) {
 		boolean playerTurn = true;
 		if (user4.isBlackjack(this.player4)) {
 			playerTurn = false;
@@ -326,7 +336,7 @@ public class BlackjackGame {
 		}
 	}
 
-	if (player5) {
+		else if (counter == 5 ) {
 		boolean playerTurn = true;
 		if (user5.isBlackjack(this.player5)) {
 			playerTurn = false;
@@ -345,7 +355,7 @@ public class BlackjackGame {
 			}
 		}
 	}
-	if (player6) {
+		else if (counter == 6) {
 		boolean playerTurn = true;
 		if (user6.isBlackjack(this.player6)) {
 			playerTurn = false;

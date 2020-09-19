@@ -24,9 +24,9 @@ public abstract class Hand {
 		}
 	}
 	public abstract int getHandValue();
-
+		
 	public List<Card> getHand() {
-		return hand;
+	return hand;
 	}
 
 	@Override

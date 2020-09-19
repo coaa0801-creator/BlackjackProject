@@ -12,8 +12,9 @@ public class BlackjackHand extends Hand {
 
 	@Override
 	public int getHandValue() {
+		
 		List<Card> hand = getHand();
-		int handTotal = 0;
+			int handTotal = 0;
 		for (int i = 0; i < hand.size(); i++)
 			handTotal += hand.get(i).getValue();
 		
