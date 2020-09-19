@@ -18,6 +18,15 @@ public class Card {
 			return value.getValue();
 	}
 
+	public String getIdTop() {
+		return value.getCardIdForTop();
+	}
+	
+	public String getIdBottom() {
+		return value.getCardIdForBottom();
+		
+	}
+	
 	public Suit getSuit() {
 		return suit;
 	}

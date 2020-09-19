@@ -158,6 +158,7 @@ public class BlackjackGame {
 //		System.out.println(blackJackDeck.checkDeckSize()); check card amount
 		int startNumCards = blackJackDeck.checkDeckSize();
 		blackJackDeck.shuffle();
+		blackJackDeck.dealCard(); //burn card in BlackJack
 		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
 		this.player1 = table1Dealer.getPlayer1();
 		this.dealer = table1Dealer.getDealer();

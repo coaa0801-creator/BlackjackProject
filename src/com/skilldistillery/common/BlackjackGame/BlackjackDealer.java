@@ -108,10 +108,10 @@ public class BlackjackDealer {
 //for(Suit s : Suit.values()){
 //System.out.println(s);
 //}
-//_______
-//|4      |
-//|       |
-//|   ♥   |
+//_______    ___
+//|4      | |4  |
+//|       |	| ♥ |
+//|   ♥     |__4|
 //|       |
 //|      4|
 //|_______|
