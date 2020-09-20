@@ -87,8 +87,34 @@ public class BlackjackDealer {
 		return player6;
 	}
 
-}
+	public boolean checkBlackjack(BlackjackHand dealer) {
+		boolean blackjack = false;
+	//		int test21 = 21;
+//		if (test21 == 21) {
+//		blackjack = true;
+//		}
+			
+		if (dealer.getHandValue() == 21) {
+			blackjack = true;
+		}
+		return blackjack;
+	
+	}
 
+	public BlackjackHand Play(BlackjackHand dealer) {
+		boolean keepGoing = true;
+		while (keepGoing) {
+		if (dealer.getHandValue() < 17) {
+			dealer = dealOneCard(dealer);
+		}else if(dealer.getHandValue() > 17) { 
+			break;
+		}
+		}
+		return dealer;
+		
+	
+}
+}
 //Deck deckOne = new Deck();
 //System.out.println("How many cards?");
 // try {

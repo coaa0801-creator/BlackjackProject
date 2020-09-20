@@ -47,13 +47,14 @@ public class BlackjackPlayer {
 	private void hitOrStayMenu(BlackjackHand playerHand) {
 	
 		int currentScore = playerHand.getHandValue();	
+		if (currentScore < 10) {
 		System.out.println("\n<===========================================>\n"
 							+"|                                           |\n"
 							+"|                   PLAYER                  |\n"
 							+"|                                           |\n"
 							+"|           YOUR CURRENT SCORE IS:          |\n"
 							+"|                                           |\n"
-							+"|                     " + currentScore + "                    |\n"
+							+"|                     " + currentScore + "                     |\n"
 							+"|                                           |\n"
 							+"|             WOULD YOU LIKE TO             |\n"
 							+"|                                           |\n"
@@ -62,7 +63,24 @@ public class BlackjackPlayer {
 							+"|                                           |\n"
 							+"|          QUIT: QUIT GAME                  |\n"
 							+"|                                           |\n"
-							+"<===========================================>");
+							+"<===========================================>");}
+		else {
+			System.out.println("\n<===========================================>\n"
+					+"|                                           |\n"
+					+"|                   PLAYER                  |\n"
+					+"|                                           |\n"
+					+"|           YOUR CURRENT SCORE IS:          |\n"
+					+"|                                           |\n"
+					+"|                     " + currentScore + "                    |\n"
+					+"|                                           |\n"
+					+"|             WOULD YOU LIKE TO             |\n"
+					+"|                                           |\n"
+					+"|          1: HIT (GET ANOTHER CARD)        |\n"
+					+"|          2: STAY (KEEP CURRENT SCORE)     |\n"
+					+"|                                           |\n"
+					+"|          QUIT: QUIT GAME                  |\n"
+					+"|                                           |\n"
+					+"<===========================================>");}
 		
 	}
 	public boolean isBlackjack(BlackjackHand player) {
@@ -76,6 +94,14 @@ public class BlackjackPlayer {
 			blackjack = true;
 		}
 		return blackjack;
+	}
+	public boolean handBusted(BlackjackHand hand) {
+		boolean busted = false;
+		if (hand.getHandValue() > 21) {
+		busted = true;
+		}
+		return busted;
+		
 	}
 		
 		

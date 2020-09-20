@@ -35,16 +35,16 @@ public class GamePlayTable {
 		String [] cardSuitMid = new String[numCardsinDeck];
 		String [] cardNumBotRt = new String[numCardsinDeck];
 		for (int player1Count = 0; player1Count < topOfCard.length ;player1Count++) {
-			try {
+			try {	
 					if(seat1.getHand().get(player1Count) != null){ 
 					topOfCard[player1Count] = " ___ ";
-					cardNumUpLeft[player1Count] = "|" + seat1.getHand().get(player1Count).getIdTop() + " |" ;
+					cardNumUpLeft[player1Count] = seat1.getHand().get(player1Count).getIdTop() + " |" ;
 					cardSuitMid[player1Count] = "| " + seat1.getHand().get(player1Count).getSuit() + " |";
 					cardNumBotRt[player1Count] = "|_" + seat1.getHand().get(player1Count).getIdBottom() + "|" ;
 					}
 			} catch (IndexOutOfBoundsException e) {
 				topOfCard[player1Count] = "     ";
-				cardNumUpLeft[player1Count] = "    ";
+				cardNumUpLeft[player1Count] = "     ";
 				cardSuitMid[player1Count] = "     ";
 				cardNumBotRt[player1Count] = "     ";
 				}}
@@ -53,14 +53,14 @@ public class GamePlayTable {
 				try {
 					if (dealerNoShow && a == 8) {
 						topOfCard[a] = " ___ ";
-						cardNumUpLeft[a] = "|░░░|" ;
+						cardNumUpLeft[a] = "|░░░|";
 						cardSuitMid[a] = "|░░░|";
 						cardNumBotRt[a] = "|░░░|" ;
 						dealerCount++;
 					}
 					else if(this.dealer.getHand().get(dealerCount) != null){ 
 				topOfCard[a] = " ___ ";
-				cardNumUpLeft[a] = "|" + dealer.getHand().get(dealerCount).getIdTop() + " |" ;
+				cardNumUpLeft[a] =  dealer.getHand().get(dealerCount).getIdTop() + " |" ;
 				cardSuitMid[a] = "| " + dealer.getHand().get(dealerCount).getSuit() + " |";
 				cardNumBotRt[a] = "|_" + dealer.getHand().get(dealerCount).getIdBottom() + "|" ;
 					dealerCount++;
@@ -85,7 +85,7 @@ public class GamePlayTable {
 						+ "|                                                   DEALER                                                  |\n"
 						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
-						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                      " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
+						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
 						+ "|                                        " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
 						+ "|                                        " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
 						+ "|                                                                                                           |\n"
