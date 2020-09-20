@@ -12,7 +12,7 @@ public class CasinoApp {
 	}
 
 	private void runCasino() {
-		printWlecomeMenu();
+		printWelcomeMenu();
 		chooseGameSwitch();
 		printGoodbye();
 	}
@@ -27,7 +27,7 @@ public class CasinoApp {
 				Casino mysticLake = new Casino();
 				String menu = mysticLake.runBlackjackGame();
 				if (menu.equals("main menu")) {
-					printWlecomeMenu();
+					printWelcomeMenu();
 					break;
 				}
 				if (menu.equals("quit")) {
@@ -62,7 +62,7 @@ public class CasinoApp {
 
 	}
 
-	private void printWlecomeMenu() {
+	private void printWelcomeMenu() {
 		System.out.println("\n<==========================================>");
 		System.out.println("|         _____                            |\n"
 				+ "|        |A .  | _____                     |\n" + "|        | /.\\ ||A ^  | _____              |\n"
@@ -74,8 +74,8 @@ public class CasinoApp {
 		System.out.println("|                                          |");
 		System.out.println("|         CHOOSE YOUR GAME TO PLAY         |");
 		System.out.println("|                                          |");
-		System.out.println("|              1: Blackjack                |");
-		System.out.println("|              2: Quit                     |");
+		System.out.println("|              1: BLACKJACK                |");
+		System.out.println("|           QUIT: QUIT                     |");
 		System.out.println("|                                          |");
 		System.out.println("|                                          |");
 		System.out.println("<==========================================>");

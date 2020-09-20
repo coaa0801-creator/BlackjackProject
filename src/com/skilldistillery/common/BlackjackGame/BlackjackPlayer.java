@@ -13,32 +13,32 @@ public class BlackjackPlayer {
 		this.hand = playerHand;
 	}
 	public String hitOrStay(BlackjackHand playerHand) {
-		String userChoice = null;
+		String choice = null;
 		this.hand = playerHand;
-		String hit = "hit";
-		String stay = "stay";
-		String quit = "quit";
 		boolean keepGoing = true;
 		while(keepGoing) {
 			hitOrStayMenu(hand);
-		userChoice = kb.nextLine().toLowerCase();	
+		String userChoice = kb.nextLine().toLowerCase();	
 		switch (userChoice) {
 		case "1":
 		case "hit":
 			keepGoing = false;
-			return hit;
+			choice = "hit";
+			break;
 		case "2":
 		case "stay":
 			keepGoing = false;
-			return stay;
+			choice = "stay";
+			break;
 		case "3": case "quit":
 		keepGoing = false;
-		return quit;
+		choice = "quit";
+		break;
 		default:
 			System.out.println("Please choose an option from the list");
 		}
 		}
-		return userChoice;
+		return choice;
 		
 		
 		}
