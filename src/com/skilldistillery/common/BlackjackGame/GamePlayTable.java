@@ -20,7 +20,7 @@ public class GamePlayTable {
 	// | | | ♥ |
 	// | ♥ |__4|
 	public void showCurrentTable(int numCardsinDeck, BlackjackHand player1, BlackjackHand player2, BlackjackHand player3,
-			BlackjackHand player4, BlackjackHand player5, BlackjackHand player6, BlackjackHand dealer, boolean dealerNoShow, String player1Result, String player2Result, String player3Result, String player4Result, String player5Result, String player6Result) {
+			BlackjackHand player4, BlackjackHand player5, BlackjackHand player6, BlackjackHand dealer, boolean dealerNoShow, String player1Result, String player2Result, String player3Result, String player4Result, String player5Result, String player6Result, String dealerName) {
 		seat1 = player1;
 		seat2 = player2;
 		seat3 = player3;
@@ -82,7 +82,7 @@ public class GamePlayTable {
 		System.out.println(
 				"\n<==========================================================================================================>\n"
 						+ "|                                                                                                           |\n"
-						+ "|                                                   DEALER                                                  |\n"
+						+ "|                                             " + dealerName + "                                                |\n"
 						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
 						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"

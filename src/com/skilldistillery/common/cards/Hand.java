@@ -19,9 +19,10 @@ public abstract class Hand {
 		
 	}
 	public void clearHand() {
-		for (int i = 0; i <= hand.size(); i++) {
-			hand.remove(i);
+			while (hand.size() > 0) {
+			hand.remove(0);
 		}
+		
 	}
 	public abstract int getHandValue();
 		

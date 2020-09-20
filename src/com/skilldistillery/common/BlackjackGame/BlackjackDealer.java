@@ -114,6 +114,20 @@ public class BlackjackDealer {
 		
 	
 }
+	public void clearHands() {
+	player1.clearHand();
+	dealer.clearHand();
+	if (player2 != null) {
+		player2.clearHand();}
+		if (player3 != null) {
+		player3.clearHand();}
+		if (player4 != null) {
+		player4.clearHand();}
+		if (player5 != null) {
+		player5.clearHand();}
+		if (player6 != null) {
+		player6.clearHand();}
+}
 }
 //Deck deckOne = new Deck();
 //System.out.println("How many cards?");

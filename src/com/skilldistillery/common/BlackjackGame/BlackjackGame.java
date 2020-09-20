@@ -9,8 +9,8 @@ public class BlackjackGame {
 	Scanner kb = new Scanner(System.in);
 	private GamePlayTable table = new GamePlayTable();
 	private BlackjackDealer table1Dealer = new BlackjackDealer(blackJackDeck);
-	private BlackjackHand player1;
 	private BlackjackHand dealer;
+	private BlackjackHand player1;
 	private BlackjackHand player2;
 	private BlackjackHand player3;
 	private BlackjackHand player4;
@@ -22,6 +22,7 @@ public class BlackjackGame {
 	private BlackjackPlayer user4 = new BlackjackPlayer(player4);;
 	private BlackjackPlayer user5 = new BlackjackPlayer(player5);;
 	private BlackjackPlayer user6 = new BlackjackPlayer(player6);;
+	private String dealerName = "    DEALER    ";
 	private String player1Result = "  SEAT OPEN   ";
 	private String player2Result = "  SEAT OPEN   ";
 	private String player3Result = "  SEAT OPEN   ";
@@ -29,7 +30,7 @@ public class BlackjackGame {
 	private String player5Result = "  SEAT OPEN   ";
 	private String player6Result = "  SEAT OPEN   ";
 
-//                                 = "BLACKJACK!!"
+//                               = "BLACKJACK!!   "
 	public String startGame() {
 		String menu = "quit";
 		playerChooseNumberDecks();
@@ -41,20 +42,42 @@ public class BlackjackGame {
 			menu = userChoosePlayerAmount();
 			if (menu.equals("quit")) {
 				playGame = false;
+				break;
 			}
 			menu = playAgain();
-
+			if (menu.equals("quit")) {
+				playGame = false;
+				break;
+			}
+			clearHands();
 		}
+
 
 		return menu;
 	}
 
+	private void clearHands() {
+	player1.clearHand();
+	dealer.clearHand();
+	table1Dealer.clearHands();
+	if (player2 != null) {
+	player2.clearHand();}
+	if (player3 != null) {
+	player3.clearHand();}
+	if (player4 != null) {
+	player4.clearHand();}
+	if (player5 != null) {
+	player5.clearHand();}
+	if (player6 != null) {
+	player6.clearHand();}
+	
+}
+
 	private String playAgain() {
 		String choice = null;
-		playAgainMenu();
 		boolean keepGoing = true;
 		while (keepGoing) {
-			playerChooseNumberDecksMenu();
+			playAgainMenu();
 			String userChoice = kb.nextLine().toLowerCase();
 			switch (userChoice) {
 			case "1":
@@ -84,7 +107,7 @@ public class BlackjackGame {
 				+"|                PLAY AGAIN?                |\n"
 				+"|                                           |\n"
 				+"|               1: PLAY AGAIN               |\n"
-				+"|               QUIT: QUIT GAME             |\n"
+				+"|            QUIT: QUIT GAME                |\n"
 				+"|                                           |\n"
 				+"|                                           |\n"
 				+"<===========================================>");}
@@ -257,12 +280,18 @@ public class BlackjackGame {
 		while (keepPlaying) {
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
-			if (dealerBlackjack = true) {
+					player5Result, player6Result, dealerName);
+			if (dealerBlackjack == true) {
+				dealerNoShow = false;
+				dealerHasBlackjack(player2, player3, player4, player5, player6);
 				keepPlaying = false;
-				compareHands();
+				table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
+						this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
+						player5Result, player6Result, dealerName);
 				break;
 			}
+			
+			
 			this.player1 = gameMoves(this.player1, counter);
 			counter++;
 			if (this.player1 == null) {
@@ -272,7 +301,7 @@ public class BlackjackGame {
 
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
+					player5Result, player6Result, dealerName);
 			if (player2) {
 				this.player2 = table1Dealer.getPlayer2();
 				this.player2 = gameMoves(this.player2, counter);
@@ -285,7 +314,7 @@ public class BlackjackGame {
 
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
+					player5Result, player6Result, dealerName);
 			if (player3) {
 				this.player3 = table1Dealer.getPlayer3();
 				this.player3 = gameMoves(this.player3, counter);
@@ -298,7 +327,7 @@ public class BlackjackGame {
 
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
+					player5Result, player6Result, dealerName);
 			if (player4) {
 				this.player4 = table1Dealer.getPlayer4();
 				this.player4 = gameMoves(this.player4, counter);
@@ -311,7 +340,7 @@ public class BlackjackGame {
 
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
+					player5Result, player6Result, dealerName);
 			if (player5) {
 				this.player5 = table1Dealer.getPlayer5();
 				this.player5 = gameMoves(this.player5, counter);
@@ -324,7 +353,7 @@ public class BlackjackGame {
 
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
+					player5Result, player6Result, dealerName);
 			if (player6) {
 				this.player6 = table1Dealer.getPlayer6();
 				this.player6 = gameMoves(this.player6, counter);
@@ -335,48 +364,81 @@ public class BlackjackGame {
 			}
 
 			dealerNoShow = false;
-			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
-					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
-					player5Result, player6Result);
-			
 		
 			this.dealer = table1Dealer.Play(dealer);
-				
+			compareHands();
+			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
+					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
+					player5Result, player6Result, dealerName);
+			
+			
+			
+			if (blackJackDeck.checkDeckSize() < 53) {
+				while (blackJackDeck.checkDeckSize() != 0) {
+					blackJackDeck.dealCard();
+				}
+				for (int i = 0; i < (startNumCards / 52);i++) {
+					blackJackDeck.addMoreDecks((startNumCards/52) + 1);
+					keepPlaying = false;
+				}
+			}
 			
 		}
 
 	}
 
+	private void dealerHasBlackjack(boolean player2, boolean player3, boolean player4, boolean player5, boolean player6) {
+         if (player1.getHandValue() != 21) {
+        	 player1Result = "YOU LOSE      ";
+         }
+		
+		if (player2) {
+			this.player2 = table1Dealer.getPlayer2();
+			if (this.player2.getHandValue() != 21) {
+				player2Result = "YOU LOSE      ";
+			}
+			
+		}
+		if (player3) {
+			this.player3 = table1Dealer.getPlayer3();
+			if (this.player3.getHandValue() != 21) {
+				player3Result = "YOU LOSE      ";
+			}
+			
+		}
+		if (player4) {
+			this.player4 = table1Dealer.getPlayer4();
+			if (this.player4.getHandValue() != 21) {
+				player4Result = "YOU LOSE      ";
+			}
+			
+		}
+		if (player5) {
+			this.player5 = table1Dealer.getPlayer5();
+			if (this.player5.getHandValue() != 21) {
+				player5Result = "YOU LOSE      ";
+			}
+			
+		}
+		if (player6) {
+			this.player6 = table1Dealer.getPlayer6();
+			if (this.player6.getHandValue() != 21) {
+				player6Result = "YOU LOSE      ";
+			}
+			
+		}
+	}
+
 	private void compareHands() {
 		int dealerHandValue = dealer.getHandValue();
-		int player1HandValue = player1.getHandValue();
-		int player2HandValue = player2.getHandValue();
-		int player3HandValue = player3.getHandValue();
-		int player4HandValue = player4.getHandValue();
-		int player5HandValue = player5.getHandValue();
-		int player6HandValue = player6.getHandValue();
 		if (dealerHandValue > 21) {
 			dealerHandValue = 0;
 		}
-		if (player1HandValue > 21) {
-			player1HandValue = -1;
-		}
-		if (player2HandValue > 21) {
-			player2HandValue = -1;
-		}
-		if (player3HandValue > 21) {
-			player3HandValue = -1;
-		}
-		if (player4HandValue > 21) {
-			player4HandValue = -1;
-		}
-		if (player5HandValue > 21) {
-			player5HandValue = -1;
-		}
-		if (player6HandValue > 21) {
-			player6HandValue = -1;
-		}
 		if (this.player1 != null) {
+			int player1HandValue = player1.getHandValue();
+			if (player1HandValue > 21) {
+				player1HandValue = -1;
+			}
 			if (player1HandValue == -1) {
 				player1Result = "BUSTED!       ";
 			}
@@ -389,6 +451,10 @@ public class BlackjackGame {
 			}
 		}
 		if (this.player2 != null) {
+			int player2HandValue = player2.getHandValue();
+			if (player2HandValue > 21) {
+				player2HandValue = -1;
+			}
 			if (player2HandValue == -1) {
 				player2Result = "BUSTED!       ";
 			}
@@ -401,6 +467,10 @@ public class BlackjackGame {
 			}
 		}
 		if (this.player3 != null) {
+			int player3HandValue = player3.getHandValue();
+			if (player3HandValue > 21) {
+				player3HandValue = -1;
+			}
 			if (player3HandValue == -1) {
 				player3Result = "BUSTED!       ";
 			}
@@ -413,18 +483,10 @@ public class BlackjackGame {
 			}
 		}
 		if (this.player4 != null) {
-			if (player4HandValue == -1) {
-				player4Result = "BUSTED!       ";
+			int player4HandValue = player4.getHandValue();
+			if (player4HandValue > 21) {
+				player4HandValue = -1;
 			}
-			else if (player4HandValue > dealerHandValue) {
-				player4Result = "WINNER!!      ";
-			} else if (player4HandValue < dealerHandValue) {
-				player4Result = "YOU LOSE      ";
-			} else {
-				player4Result = "PUSH          ";
-			}
-		}
-		if (this.player4 != null) {
 			if (player4HandValue == -1) {
 				player4Result = "BUSTED!       ";
 			}
@@ -437,6 +499,10 @@ public class BlackjackGame {
 			}
 		}
 		if (this.player5 != null) {
+			int player5HandValue = player5.getHandValue();
+			if (player5HandValue > 21) {
+				player5HandValue = -1;
+			}
 			if (player5HandValue == -1) {
 				player5Result = "BUSTED!       ";
 			}
@@ -449,6 +515,10 @@ public class BlackjackGame {
 			}
 		}
 		if (this.player6 != null) {
+			int player6HandValue = player6.getHandValue();
+			if (player6HandValue > 21) {
+				player6HandValue = -1;
+			}
 			if (player6HandValue == -1) {
 				player6Result = "BUSTED!       ";
 			}
@@ -473,8 +543,8 @@ public class BlackjackGame {
 				playerTurn = false;
 				player1Result = "BLACKJACK!!   ";
 			}
+			while (this.player1.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player1.getHandValue() <= 21) {
 					String choice = user1.hitOrStay(this.player1);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player1);
@@ -498,12 +568,13 @@ public class BlackjackGame {
 
 		else if (counter == 2) {
 			boolean playerTurn = true;
+			if (this.player2 != null) {
 			if (user2.isBlackjack(this.player2)) {
 				playerTurn = false;
 				player2Result = "BLACKJACK!!   ";
 			}
+			while (this.player2.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player2.getHandValue() <= 21) {
 					String choice = user2.hitOrStay(this.player2);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player2);
@@ -518,7 +589,7 @@ public class BlackjackGame {
 					} else if (choice.equals("quit")) {
 						playerUp = null;
 						break;
-
+					}
 					}
 				}
 			}
@@ -526,12 +597,13 @@ public class BlackjackGame {
 
 		else if (counter == 3) {
 			boolean playerTurn = true;
+			if (this.player3 != null) {
 			if (user3.isBlackjack(this.player3)) {
 				playerTurn = false;
 				player3Result = "BLACKJACK!!   ";
 			}
+			while (this.player3.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player3.getHandValue() <= 21) {
 					String choice = user3.hitOrStay(this.player3);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player3);
@@ -546,18 +618,19 @@ public class BlackjackGame {
 					} else if (choice.equals("quit")) {
 						playerUp = null;
 						break;
-
+					}
 					}
 				}
 			}
 		} else if (counter == 4) {
 			boolean playerTurn = true;
+			if (this.player4 != null) {
 			if (user4.isBlackjack(this.player4)) {
 				playerTurn = false;
 				player4Result = "BLACKJACK!!   ";
 			}
+			while (this.player4.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player4.getHandValue() <= 21) {
 					String choice = user4.hitOrStay(this.player4);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player4);
@@ -572,7 +645,7 @@ public class BlackjackGame {
 					} else if (choice.equals("quit")) {
 						playerUp = null;
 						break;
-
+					}
 					}
 				}
 			}
@@ -580,12 +653,13 @@ public class BlackjackGame {
 
 		else if (counter == 5) {
 			boolean playerTurn = true;
+			if (this.player5 != null) {
 			if (user5.isBlackjack(this.player5)) {
 				playerTurn = false;
 				player5Result = "BLACKJACK!!   ";
 			}
+			while (this.player5.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player5.getHandValue() <= 21) {
 					String choice = user5.hitOrStay(this.player5);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player5);
@@ -600,18 +674,19 @@ public class BlackjackGame {
 					} else if (choice.equals("quit")) {
 						playerUp = null;
 						break;
-
+					}
 					}
 				}
 			}
 		} else if (counter == 6) {
 			boolean playerTurn = true;
+			if (this.player5 != null) {
 			if (user6.isBlackjack(this.player6)) {
 				playerTurn = false;
 				player5Result = "BLACKJACK!!   ";
 			}
+			while (this.player6.getHandValue() <= 21) {
 			while (playerTurn) {
-				while (this.player6.getHandValue() <= 21) {
 					String choice = user5.hitOrStay(this.player6);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(this.player6);
@@ -626,7 +701,7 @@ public class BlackjackGame {
 					} else if (choice.equals("quit")) {
 						playerUp = null;
 						break;
-
+					}
 					}
 				}
 			}
