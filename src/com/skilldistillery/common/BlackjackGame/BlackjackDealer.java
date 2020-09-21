@@ -2,6 +2,7 @@ package com.skilldistillery.common.BlackjackGame;
 
 import java.util.Scanner;
 
+import com.skilldistillery.common.cards.Card;
 import com.skilldistillery.common.cards.Deck;
 
 public class BlackjackDealer {
@@ -24,10 +25,47 @@ public class BlackjackDealer {
 	public BlackjackHand dealOneCard(BlackjackHand player) {
 		this.anyPlayer = player;
 		this.anyPlayer.addCard(blackjackDeck.dealCard());
+		printCardDrawn(anyPlayer);
+		
 		return anyPlayer;
 		
 	}
 	
+	private void printCardDrawn(BlackjackHand anyPlayer2) {
+		String [] topOfCard = new String[1];
+		String [] cardNumUpLeft = new String[1];
+		String [] cardSuitMid = new String[1];
+		String [] cardNumBotRt = new String[1];
+		String blankLineCard = "|     |";
+		for (int player1Count = 0; player1Count < topOfCard.length ;player1Count++) {
+			if(anyPlayer2 != null){ 
+			try {	
+					topOfCard[player1Count] = " _____ ";
+					cardNumUpLeft[player1Count] = anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getIdTop() + "   |";
+					cardSuitMid[player1Count] = "|  " + anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getSuit() + "  |";
+					cardNumBotRt[player1Count] = "|___" + anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getIdBottom() + "|" ;
+			} catch (IndexOutOfBoundsException e) {
+				topOfCard[player1Count] = "     ";
+				cardNumUpLeft[player1Count] = "     ";
+				cardSuitMid[player1Count] = "     ";
+				cardNumBotRt[player1Count] = "     ";
+				}}
+		}
+		
+		System.out.println("\n<===========================================>\n"
+				+"|                                           |\n"
+				+"|                 YOU DREW                  |\n"
+				+"|                 " + topOfCard[0] + "                   |\n"
+				+"|                 " + cardNumUpLeft[0] + "                   |\n"
+				+"|                 " + blankLineCard + "                   |\n"
+				+"|                 " + cardSuitMid[0] + "                   |\n"
+				+"|                 " + blankLineCard + "                   |\n"
+				+"|                 " + cardNumBotRt[0] + "                   |\n"
+				+"|                                           |\n"
+				+"<===========================================>");}
+		
+	
+
 	public void dealStartHands(boolean player1, boolean player2,boolean player3, boolean player4,boolean player5, boolean player6) {
 //		System.out.println(blackjackDeck.checkDeckSize());check deck size
 		int count = 0;
