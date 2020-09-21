@@ -70,6 +70,7 @@ public class BlackjackGame {
 	player5.clearHand();}
 	if (player6 != null) {
 	player6.clearHand();}
+	dealerName = "    DEALER    ";
 	
 }
 
@@ -473,11 +474,22 @@ public class BlackjackGame {
 
 	private void compareHands() {
 		int dealerHandValue = dealer.getHandValue();
+		for (int i = 0; i < dealer.getHand().size(); i++) {
+			if (dealer.getHand().get(i).getValue() == 11 && dealer.getHandValue() > 21) {
+				dealerHandValue = dealer.getHandValue() - 10;
+			}
+		}
 		if (dealerHandValue > 21) {
 			dealerHandValue = 0;
 		}
 		if (this.player1 != null) {
+			
 			int player1HandValue = player1.getHandValue();
+			for (int i = 0; i < player1.getHand().size(); i++) {
+				if (player1.getHand().get(i).getValue() == 11 && player1.getHandValue() > 21) {
+					player1HandValue = player1.getHandValue() - 10;
+				}
+			}
 			if (player1HandValue > 21) {
 				player1HandValue = -1;
 			}
@@ -497,6 +509,11 @@ public class BlackjackGame {
 		}
 		if (this.player2 != null) {
 			int player2HandValue = player2.getHandValue();
+			for (int i = 0; i < player2.getHand().size(); i++) {
+				if (player2.getHand().get(i).getValue() == 11 && player2.getHandValue() > 21) {
+					player2HandValue = player2.getHandValue() - 10;
+				}
+			}
 			if (player2HandValue > 21) {
 				player2HandValue = -1;
 			}
@@ -516,6 +533,11 @@ public class BlackjackGame {
 		}
 		if (this.player3 != null) {
 			int player3HandValue = player3.getHandValue();
+			for (int i = 0; i < player3.getHand().size(); i++) {
+				if (player3.getHand().get(i).getValue() == 11 && player3.getHandValue() > 21) {
+					player3HandValue = player3.getHandValue() - 10;
+				}
+			}
 			if (player3HandValue > 21) {
 				player3HandValue = -1;
 			}
@@ -535,6 +557,11 @@ public class BlackjackGame {
 		}
 		if (this.player4 != null) {
 			int player4HandValue = player4.getHandValue();
+			for (int i = 0; i < player4.getHand().size(); i++) {
+				if (player4.getHand().get(i).getValue() == 11 && player4.getHandValue() > 21) {
+					player4HandValue = player4.getHandValue() - 10;
+				}
+			}
 			if (player4HandValue > 21) {
 				player4HandValue = -1;
 			}
@@ -554,6 +581,11 @@ public class BlackjackGame {
 		}
 		if (this.player5 != null) {
 			int player5HandValue = player5.getHandValue();
+			for (int i = 0; i < player5.getHand().size(); i++) {
+				if (player5.getHand().get(i).getValue() == 11 && player5.getHandValue() > 21) {
+					player5HandValue = player5.getHandValue() - 10;
+				}
+			}
 			if (player5HandValue > 21) {
 				player5HandValue = -1;
 			}
@@ -573,6 +605,11 @@ public class BlackjackGame {
 		}
 		if (this.player6 != null) {
 			int player6HandValue = player6.getHandValue();
+			for (int i = 0; i < player6.getHand().size(); i++) {
+				if (player6.getHand().get(i).getValue() == 11 && player6.getHandValue() > 21) {
+					player6HandValue = player6.getHandValue() - 10;
+				}
+			}
 			if (player6HandValue > 21) {
 				player6HandValue = -1;
 			}
@@ -615,7 +652,13 @@ public class BlackjackGame {
 			}break;}
 			boolean noStayQuitOrHasBusted = true;
 		    while (noStayQuitOrHasBusted) {
-				if (playerUp.getHandValue() <= 21) {
+		    	int playerHandWithAces = playerUp.getHandValue();
+				for (int i = 0; i < playerUp.getHand().size(); i++) {
+					if (playerUp.getHand().get(i).getValue() == 11 && playerUp.getHandValue() > 21) {
+						playerHandWithAces = playerUp.getHandValue() - 10;
+					}
+				}
+				if (playerHandWithAces <= 21) {
 					String choice = user.hitOrStay(playerUp,counter);
 					if (choice.equals("hit")) {
 						playerUp = table1Dealer.dealOneCard(playerUp);

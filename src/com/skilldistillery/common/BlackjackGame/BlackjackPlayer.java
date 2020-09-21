@@ -7,10 +7,10 @@ import com.skilldistillery.common.cards.Card;
 
 public class BlackjackPlayer {
 	Scanner kb = new Scanner(System.in);
-	private BlackjackHand hand;
+	private BlackjackHand playerHand;
 
 	public BlackjackPlayer(BlackjackHand playerHand) {
-		this.hand = playerHand;
+		this.playerHand = playerHand;
 	}
 	public String hitOrStay(BlackjackHand playerHand, int counter) {
 		String choice = null;
@@ -44,9 +44,68 @@ public class BlackjackPlayer {
 		
 	
 	private void hitOrStayMenu(BlackjackHand playerHand, int counter) {
-	
+		int playerHandWithAces = 0;
 		int currentScore = playerHand.getHandValue();	
-		if (currentScore < 10) {
+		for (int i = 0; i < playerHand.getHand().size(); i++) {
+			if (playerHand.getHand().get(i).getValue() == 11) {
+				playerHandWithAces = playerHand.getHandValue();
+			}
+		}
+		if (playerHandWithAces != 0 && playerHand.getHandValue() < 22 && playerHand.getHand().size() == 2) {
+			System.out.println("\n<===========================================>\n"
+					+"|                                           |\n"
+					+"|                   PLAYER " + counter + "                |\n"
+					+"|                                           |\n"
+					+"|           YOUR CURRENT SCORE IS:          |\n"
+					+"|                                           |\n"
+					+"|                   " + currentScore + " or " + (currentScore - 10) + "                 |\n"
+					+"|                                           |\n"
+					+"|             WOULD YOU LIKE TO             |\n"
+					+"|                                           |\n"
+					+"|          1: HIT (GET ANOTHER CARD)        |\n"
+					+"|          2: STAY (KEEP CURRENT SCORE)     |\n"
+					+"|                                           |\n"
+					+"|          QUIT: QUIT GAME                  |\n"
+					+"|                                           |\n"
+					+"<===========================================>");}
+		else if (playerHandWithAces != 0 && playerHand.getHandValue() < 22) {
+			System.out.println("\n<===========================================>\n"
+					+"|                                           |\n"
+					+"|                   PLAYER " + counter + "                |\n"
+					+"|                                           |\n"
+					+"|           YOUR CURRENT SCORE IS:          |\n"
+					+"|                                           |\n"
+					+"|                   " + currentScore + " or " + (currentScore - 10) + "                 |\n"
+					+"|                                           |\n"
+					+"|             WOULD YOU LIKE TO             |\n"
+					+"|                                           |\n"
+					+"|          1: HIT (GET ANOTHER CARD)        |\n"
+					+"|          2: STAY (KEEP CURRENT SCORE)     |\n"
+					+"|                                           |\n"
+					+"|          QUIT: QUIT GAME                  |\n"
+					+"|                                           |\n"
+					+"<===========================================>");}
+		else if (playerHandWithAces != 0 && playerHand.getHandValue() > 22) {
+			System.out.println("\n<===========================================>\n"
+					+"|                                           |\n"
+					+"|                   PLAYER " + counter + "                |\n"
+					+"|                                           |\n"
+					+"|           YOUR CURRENT SCORE IS:          |\n"
+					+"|                                           |\n"
+					+"|                      " + (currentScore - 10) + "                   |\n"
+					+"|                                           |\n"
+					+"|             WOULD YOU LIKE TO             |\n"
+					+"|                                           |\n"
+					+"|          1: HIT (GET ANOTHER CARD)        |\n"
+					+"|          2: STAY (KEEP CURRENT SCORE)     |\n"
+					+"|                                           |\n"
+					+"|          QUIT: QUIT GAME                  |\n"
+					+"|                                           |\n"
+					+"<===========================================>");}
+		
+		
+		
+		else if (currentScore < 10) {
 		System.out.println("\n<===========================================>\n"
 							+"|                                           |\n"
 							+"|                   PLAYER " + counter + "                |\n"
@@ -95,8 +154,14 @@ public class BlackjackPlayer {
 		return blackjack;
 	}
 	public boolean handBusted(BlackjackHand hand) {
+		int playerHandWithAces = hand.getHandValue();
+		for (int i = 0; i < hand.getHand().size(); i++) {
+			if (hand.getHand().get(i).getValue() == 11 && hand.getHandValue() > 21) {
+				playerHandWithAces = hand.getHandValue() - 10;
+			}
+		}
 		boolean busted = false;
-		if (hand.getHandValue() > 21) {
+		if (playerHandWithAces > 21) {
 		busted = true;
 		}
 		return busted;

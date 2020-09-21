@@ -142,9 +142,15 @@ public class BlackjackDealer {
 	public BlackjackHand Play(BlackjackHand dealer) {
 		boolean keepGoing = true;
 		while (keepGoing) {
-		if (dealer.getHandValue() < 17) {
-			dealer = dealOneCard(dealer);
-		}else if(dealer.getHandValue() > 17) { 
+			int dealerHandWithAces = dealer.getHandValue();
+			for (int i = 0; i < dealer.getHand().size(); i++) {
+				if (dealer.getHand().get(i).getValue() == 11 && dealer.getHandValue() > 21) {
+					dealerHandWithAces = dealer.getHandValue() - 10;
+			}
+			}
+		if (dealerHandWithAces < 17 ) {
+			dealer = dealOneDealerCard(dealer);
+		}else if(dealerHandWithAces > 17) { 
 			break;
 		}
 		}
@@ -152,6 +158,50 @@ public class BlackjackDealer {
 		
 	
 }
+	private BlackjackHand dealOneDealerCard(BlackjackHand dealer2) {
+		this.anyPlayer = dealer2;
+		this.anyPlayer.addCard(blackjackDeck.dealCard());
+		printDealerCardDrawn(anyPlayer);
+		
+		return anyPlayer;
+		
+	}
+
+	private void printDealerCardDrawn(BlackjackHand anyPlayer2) {
+		String [] topOfCard = new String[1];
+		String [] cardNumUpLeft = new String[1];
+		String [] cardSuitMid = new String[1];
+		String [] cardNumBotRt = new String[1];
+		String blankLineCard = "|     |";
+		for (int player1Count = 0; player1Count < topOfCard.length ;player1Count++) {
+			if(anyPlayer2 != null){ 
+			try {	
+					topOfCard[player1Count] = " _____ ";
+					cardNumUpLeft[player1Count] = anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getIdTop() + "   |";
+					cardSuitMid[player1Count] = "|  " + anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getSuit() + "  |";
+					cardNumBotRt[player1Count] = "|___" + anyPlayer2.getHand().get(anyPlayer2.getHand().size()-1).getIdBottom() + "|" ;
+			} catch (IndexOutOfBoundsException e) {
+				topOfCard[player1Count] = "     ";
+				cardNumUpLeft[player1Count] = "     ";
+				cardSuitMid[player1Count] = "     ";
+				cardNumBotRt[player1Count] = "     ";
+				}}
+		}
+		
+		System.out.println("\n<===========================================>\n"
+				+"|                                           |\n"
+				+"|                DEALER DREW                |\n"
+				+"|                 " + topOfCard[0] + "                   |\n"
+				+"|                 " + cardNumUpLeft[0] + "                   |\n"
+				+"|                 " + blankLineCard + "                   |\n"
+				+"|                 " + cardSuitMid[0] + "                   |\n"
+				+"|                 " + blankLineCard + "                   |\n"
+				+"|                 " + cardNumBotRt[0] + "                   |\n"
+				+"|                                           |\n"
+				+"<===========================================>");}
+		
+	
+
 	public void clearHands() {
 	player1.clearHand();
 	dealer.clearHand();
