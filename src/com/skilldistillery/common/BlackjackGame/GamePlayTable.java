@@ -1,7 +1,5 @@
 package com.skilldistillery.common.BlackjackGame;
 
-import java.util.List;
-
 public class GamePlayTable {
 	private BlackjackHand seat1;
 	private BlackjackHand seat2;
