@@ -91,6 +91,78 @@ public class GamePlayTable {
 				}
 				}
 			}	
+			if(seat2 != null){ 
+				int player2Count = 0;
+				for(int b = 16; b < topOfCard.length; b++) {
+					try {
+						topOfCard[b] = " ___ ";
+						cardNumUpLeft[b] =  player2.getHand().get(player2Count).getIdTop() + " |" ;
+						cardSuitMid[b] = "| " + player2.getHand().get(player2Count).getSuit() + " |";
+						cardNumBotRt[b] = "|_" + player2.getHand().get(player2Count).getIdBottom() + "|" ;
+						player2Count++; 
+					} catch (IndexOutOfBoundsException e) {
+						topOfCard[b] = "     ";
+						cardNumUpLeft[b] = "     ";
+						cardSuitMid[b] = "     ";
+						cardNumBotRt[b] = "     ";
+						player2Count++;
+					}
+				}
+			}	
+			if(seat2 != null){ 
+				int player2Count = 0;
+				for(int b = 16; b < topOfCard.length; b++) {
+					try {
+						topOfCard[b] = " ___ ";
+						cardNumUpLeft[b] =  player2.getHand().get(player2Count).getIdTop() + " |" ;
+						cardSuitMid[b] = "| " + player2.getHand().get(player2Count).getSuit() + " |";
+						cardNumBotRt[b] = "|_" + player2.getHand().get(player2Count).getIdBottom() + "|" ;
+						player2Count++; 
+					} catch (IndexOutOfBoundsException e) {
+						topOfCard[b] = "     ";
+						cardNumUpLeft[b] = "     ";
+						cardSuitMid[b] = "     ";
+						cardNumBotRt[b] = "     ";
+						player2Count++;
+					}
+				}
+			}	
+			if(seat2 != null){ 
+				int player2Count = 0;
+				for(int b = 16; b < topOfCard.length; b++) {
+					try {
+						topOfCard[b] = " ___ ";
+						cardNumUpLeft[b] =  player2.getHand().get(player2Count).getIdTop() + " |" ;
+						cardSuitMid[b] = "| " + player2.getHand().get(player2Count).getSuit() + " |";
+						cardNumBotRt[b] = "|_" + player2.getHand().get(player2Count).getIdBottom() + "|" ;
+						player2Count++; 
+					} catch (IndexOutOfBoundsException e) {
+						topOfCard[b] = "     ";
+						cardNumUpLeft[b] = "     ";
+						cardSuitMid[b] = "     ";
+						cardNumBotRt[b] = "     ";
+						player2Count++;
+					}
+				}
+			}	
+			if(seat6 != null){ 
+				int player6Count = 0;
+				for(int f = 64; f < topOfCard.length; f++) {
+					try {
+						topOfCard[f] = " ___ ";
+						cardNumUpLeft[f] =  player6.getHand().get(player6Count).getIdTop() + " |" ;
+						cardSuitMid[f] = "| " + player6.getHand().get(player6Count).getSuit() + " |";
+						cardNumBotRt[f] = "|_" + player6.getHand().get(player6Count).getIdBottom() + "|" ;
+						player6Count++; 
+					} catch (IndexOutOfBoundsException e) {
+						topOfCard[f] = "     ";
+						cardNumUpLeft[f] = "     ";
+						cardSuitMid[f] = "     ";
+						cardNumBotRt[f] = "     ";
+						player6Count++;
+					}
+				}
+			}	
 			
 		
 		
@@ -103,15 +175,15 @@ public class GamePlayTable {
 						+ "|                                             " + dealerName + "                                                |\n"
 						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
-						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
-						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
-						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
-						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                                                   |\n"
+						+ "| " + topOfCard[64] + " " + topOfCard[65] + " " + topOfCard[66] + " " + topOfCard[67] + "                " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
+						+ "| " + cardNumUpLeft[64] + " " + cardNumUpLeft[65] + " " + cardNumUpLeft[66] + " " + cardNumUpLeft[67] + "                " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
+						+ "| " + cardSuitMid[64] + " " + cardSuitMid[65] + " " + cardSuitMid[66] + " " + cardSuitMid[67] + "                " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
+						+ "| " + cardNumBotRt[64] + " " + cardNumBotRt[65] + " " + cardNumBotRt[66] + " " + cardNumBotRt[67] + "                                                                                   |\n"
 						+ "|                                                                                   " + topOfCard[7] + " " + topOfCard[6] + " " + topOfCard[5] + " " + topOfCard[4] + " |\n"
-						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                           " + cardNumUpLeft[7] + " " + cardNumUpLeft[6] + " " + cardNumUpLeft[5] + " " + cardNumUpLeft[4] + " |\n"
-						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + cardSuitMid[7] + " " + cardSuitMid[6] + " " + cardSuitMid[5] + " " + cardSuitMid[4] + " |\n"
-						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumBotRt[7] + " " + cardNumBotRt[6] + " " + cardNumBotRt[5] + " " + cardNumBotRt[4] + " |\n"
-						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                                                   |\n"
+						+ "| " + topOfCard[68] + " " + topOfCard[69] + " " + topOfCard[70] + " " + topOfCard[71] + "                                                           " + cardNumUpLeft[7] + " " + cardNumUpLeft[6] + " " + cardNumUpLeft[5] + " " + cardNumUpLeft[4] + " |\n"
+						+ "| " + cardNumUpLeft[68] + " " + cardNumUpLeft[69] + " " + cardNumUpLeft[70] + " " + cardNumUpLeft[71] + "                                                           " + cardSuitMid[7] + " " + cardSuitMid[6] + " " + cardSuitMid[5] + " " + cardSuitMid[4] + " |\n"
+						+ "| " + cardSuitMid[68] + " " + cardSuitMid[69] + " " + cardSuitMid[70] + " " + cardSuitMid[71] + "                                                           " + cardNumBotRt[7] + " " + cardNumBotRt[6] + " " + cardNumBotRt[5] + " " + cardNumBotRt[4] + " |\n"
+						+ "| " + cardNumBotRt[68] + " " + cardNumBotRt[69] + " " + cardNumBotRt[70] + " " + cardNumBotRt[71] + "                                                                                   |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
 						+ "|    " + player5Result + "                                                                          " + player2Result + " |\n"
@@ -121,10 +193,10 @@ public class GamePlayTable {
 						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
 						+ "|                                                                                   " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + " |\n"
 						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                                                   |\n"
-						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + " |\n"
-						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumUpLeft[19] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + " |\n"
-						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
-						+ "|                                                                                   " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + " |\n"
+						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[23] + " " + topOfCard[22] + " " + topOfCard[21] + " " + topOfCard[20] + " |\n"
+						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumUpLeft[23] + " " + cardNumUpLeft[22] + " " + cardNumUpLeft[21] + " " + cardNumUpLeft[20] + " |\n"
+						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[23] + " " + cardSuitMid[22] + " " + cardSuitMid[21] + " " + cardSuitMid[20] + " |\n"
+						+ "|                                                                                   " + cardNumBotRt[23] + " " + cardNumBotRt[22] + " " + cardNumBotRt[21] + " " + cardNumBotRt[20] + " |\n"
 						+ "<===========================================================================================================>");
 
 	}
