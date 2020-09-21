@@ -59,7 +59,7 @@ public class BlackjackPlayer {
 					+"|                                           |\n"
 					+"|           YOUR CURRENT SCORE IS:          |\n"
 					+"|                                           |\n"
-					+"|                   " + currentScore + " or " + (currentScore - 10) + "                 |\n"
+					+"|                   " + (currentScore - 20) + " or " + (currentScore - 10) + "                 |\n"
 					+"|                                           |\n"
 					+"|             WOULD YOU LIKE TO             |\n"
 					+"|                                           |\n"
