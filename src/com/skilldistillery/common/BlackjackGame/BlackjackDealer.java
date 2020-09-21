@@ -146,13 +146,14 @@ public class BlackjackDealer {
 			for (int i = 0; i < dealer.getHand().size(); i++) {
 				if (dealer.getHand().get(i).getValue() == 11 && dealer.getHandValue() > 21) {
 					dealerHandWithAces = dealer.getHandValue() - 10;
+				}
+				
 			}
-			}
-		if (dealerHandWithAces < 17 ) {
-			dealer = dealOneDealerCard(dealer);
-		}else if(dealerHandWithAces > 17) { 
-			break;
-		}
+				if (dealerHandWithAces < 17 ) {
+					dealer = dealOneDealerCard(dealer);
+				}else if(dealerHandWithAces >= 17) {
+					break;
+				}
 		}
 		return dealer;
 		

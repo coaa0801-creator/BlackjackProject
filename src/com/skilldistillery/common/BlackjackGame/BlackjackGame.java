@@ -392,7 +392,15 @@ public class BlackjackGame {
 			dealerNoShow = false;
 		
 			this.dealer = table1Dealer.Play(dealer);
-			if (this.dealer.getHandValue() > 21) {
+			
+			int dealerHandValue = dealer.getHandValue();
+			for (int i = 0; i < dealer.getHand().size(); i++) {
+				if (dealer.getHand().get(i).getValue() == 11 && dealer.getHandValue() > 21) {
+					dealerHandValue = dealer.getHandValue() - 10;
+				}
+			}
+
+			if (dealerHandValue > 21) {
 				dealerName = "DEALER BUSTED!";
 			}
 			compareHands();

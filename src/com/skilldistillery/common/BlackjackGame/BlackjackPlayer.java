@@ -47,11 +47,12 @@ public class BlackjackPlayer {
 		int playerHandWithAces = 0;
 		int currentScore = playerHand.getHandValue();	
 		for (int i = 0; i < playerHand.getHand().size(); i++) {
-			if (playerHand.getHand().get(i).getValue() == 11) {
+			
+				if (playerHand.getHand().get(i).getValue() == 11) {
 				playerHandWithAces = playerHand.getHandValue();
 			}
 		}
-		if (playerHandWithAces != 0 && playerHand.getHandValue() < 22 && playerHand.getHand().size() == 2) {
+		if (playerHandWithAces != 0 && playerHand.getHandValue() == 22) {
 			System.out.println("\n<===========================================>\n"
 					+"|                                           |\n"
 					+"|                   PLAYER " + counter + "                |\n"
@@ -68,7 +69,7 @@ public class BlackjackPlayer {
 					+"|          QUIT: QUIT GAME                  |\n"
 					+"|                                           |\n"
 					+"<===========================================>");}
-		else if (playerHandWithAces != 0 && playerHand.getHandValue() < 22) {
+		if (playerHandWithAces != 0 && playerHand.getHandValue() <= 21) {
 			System.out.println("\n<===========================================>\n"
 					+"|                                           |\n"
 					+"|                   PLAYER " + counter + "                |\n"
