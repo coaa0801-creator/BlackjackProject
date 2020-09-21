@@ -264,6 +264,7 @@ public class BlackjackGame {
 
 	private String playFullTableHand(boolean player1, boolean player2, boolean player3, boolean player4, boolean player5,
 			boolean player6) {
+		int startNumCards = blackJackDeck.checkDeckSize();
 		blackJackDeck.shuffle();
 		blackJackDeck.dealCard(); // burn card in BlackJack
 		table1Dealer.dealStartHands(player1, player2, player3, player4, player5, player6);
@@ -285,7 +286,6 @@ public class BlackjackGame {
 			this.player6 = table1Dealer.getPlayer6();
 		}
 		boolean dealerNoShow = true;
-		int startNumCards = blackJackDeck.checkDeckSize();
 		String quit = ""; 
 		int counter = 1;
 		boolean playOneHandNotComplete = true;

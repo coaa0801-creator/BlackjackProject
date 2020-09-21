@@ -50,7 +50,7 @@ public class BlackjackDealer {
 				this.player5.addCard(blackjackDeck.dealCard());
 			}
 			if (player6) {
-				this.player5.addCard(blackjackDeck.dealCard());
+				this.player6.addCard(blackjackDeck.dealCard());
 			}
 			dealer.addCard(blackjackDeck.dealCard());
 		}
