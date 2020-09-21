@@ -12,12 +12,11 @@ public class BlackjackPlayer {
 	public BlackjackPlayer(BlackjackHand playerHand) {
 		this.hand = playerHand;
 	}
-	public String hitOrStay(BlackjackHand playerHand) {
+	public String hitOrStay(BlackjackHand playerHand, int counter) {
 		String choice = null;
-		this.hand = playerHand;
 		boolean keepGoing = true;
 		while(keepGoing) {
-			hitOrStayMenu(hand);
+			hitOrStayMenu(playerHand, counter);
 		String userChoice = kb.nextLine().toLowerCase();	
 		switch (userChoice) {
 		case "1":
@@ -44,13 +43,13 @@ public class BlackjackPlayer {
 		}
 		
 	
-	private void hitOrStayMenu(BlackjackHand playerHand) {
+	private void hitOrStayMenu(BlackjackHand playerHand, int counter) {
 	
 		int currentScore = playerHand.getHandValue();	
 		if (currentScore < 10) {
 		System.out.println("\n<===========================================>\n"
 							+"|                                           |\n"
-							+"|                   PLAYER                  |\n"
+							+"|                   PLAYER " + counter + "                |\n"
 							+"|                                           |\n"
 							+"|           YOUR CURRENT SCORE IS:          |\n"
 							+"|                                           |\n"
@@ -67,7 +66,7 @@ public class BlackjackPlayer {
 		else {
 			System.out.println("\n<===========================================>\n"
 					+"|                                           |\n"
-					+"|                   PLAYER                  |\n"
+					+"|                   PLAYER " + counter + "                |\n"
 					+"|                                           |\n"
 					+"|           YOUR CURRENT SCORE IS:          |\n"
 					+"|                                           |\n"
