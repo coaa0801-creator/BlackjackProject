@@ -421,12 +421,16 @@ public class BlackjackGame {
 		if (player1.getHandValue() != 21) {
         	 player1Result = "YOU LOSE      ";
          }
+		else {
+        	 player1Result = "    PUSH      ";}
 		
 		if (player2) {
 			this.player2 = table1Dealer.getPlayer2();
 			if (this.player2.getHandValue() != 21) {
 				player2Result = "YOU LOSE      ";
 			}
+			else {
+				player2Result = "    PUSH      ";}
 			
 		}
 		if (player3) {
@@ -434,6 +438,8 @@ public class BlackjackGame {
 			if (this.player3.getHandValue() != 21) {
 				player3Result = "YOU LOSE      ";
 			}
+			else {
+				player3Result = "    PUSH      ";}
 			
 		}
 		if (player4) {
@@ -441,6 +447,8 @@ public class BlackjackGame {
 			if (this.player4.getHandValue() != 21) {
 				player4Result = "YOU LOSE      ";
 			}
+			else {
+				player4Result = "    PUSH      ";}
 			
 		}
 		if (player5) {
@@ -448,6 +456,8 @@ public class BlackjackGame {
 			if (this.player5.getHandValue() != 21) {
 				player5Result = "YOU LOSE      ";
 			}
+			else {
+				player5Result = "    PUSH      ";}
 			
 		}
 		if (player6) {
@@ -455,6 +465,8 @@ public class BlackjackGame {
 			if (this.player6.getHandValue() != 21) {
 				player6Result = "YOU LOSE      ";
 			}
+			else {
+				player6Result = "    PUSH      ";}
 			
 		}
 	}
@@ -469,7 +481,10 @@ public class BlackjackGame {
 			if (player1HandValue > 21) {
 				player1HandValue = -1;
 			}
-			if (player1HandValue == -1) {
+			if (player1Result.equals("BLACKJACK!!   ")) {
+				player1Result = " BLACKJACK!!  ";
+			}
+			else if (player1HandValue == -1) {
 				player1Result = "BUSTED!       ";
 			}
 			else if (player1HandValue > dealerHandValue) {
@@ -485,7 +500,10 @@ public class BlackjackGame {
 			if (player2HandValue > 21) {
 				player2HandValue = -1;
 			}
-			if (player2HandValue == -1) {
+			if (player2Result.equals("BLACKJACK!!   ")) {
+				player2Result = " BLACKJACK!!  ";
+			}
+			else if (player2HandValue == -1) {
 				player2Result = "BUSTED!       ";
 			}
 			else if (player2HandValue > dealerHandValue) {
@@ -501,7 +519,10 @@ public class BlackjackGame {
 			if (player3HandValue > 21) {
 				player3HandValue = -1;
 			}
-			if (player3HandValue == -1) {
+			if (player3Result.equals("BLACKJACK!!   ")) {
+				player3Result = " BLACKJACK!!  ";
+			}
+			else if (player3HandValue == -1) {
 				player3Result = "BUSTED!       ";
 			}
 			else if (player3HandValue > dealerHandValue) {
@@ -517,7 +538,10 @@ public class BlackjackGame {
 			if (player4HandValue > 21) {
 				player4HandValue = -1;
 			}
-			if (player4HandValue == -1) {
+			if (player4Result.equals("BLACKJACK!!   ")) {
+				player4Result = " BLACKJACK!!  ";
+			}
+			else if (player4HandValue == -1) {
 				player4Result = "BUSTED!       ";
 			}
 			else if (player4HandValue > dealerHandValue) {
@@ -533,7 +557,10 @@ public class BlackjackGame {
 			if (player5HandValue > 21) {
 				player5HandValue = -1;
 			}
-			if (player5HandValue == -1) {
+			if (player5Result.equals("BLACKJACK!!   ")) {
+				player5Result = " BLACKJACK!!  ";
+			}
+			else if (player5HandValue == -1) {
 				player5Result = "BUSTED!       ";
 			}
 			else if (player5HandValue > dealerHandValue) {
@@ -549,7 +576,10 @@ public class BlackjackGame {
 			if (player6HandValue > 21) {
 				player6HandValue = -1;
 			}
-			if (player6HandValue == -1) {
+			if (player6Result.equals("BLACKJACK!!   ")) {
+				player6Result = " BLACKJACK!!  ";
+			}
+			else if (player6HandValue == -1) {
 				player6Result = "BUSTED!       ";
 			}
 			else if (player6HandValue > dealerHandValue) {
@@ -582,7 +612,7 @@ public class BlackjackGame {
 					player5Result = "BLACKJACK!!   ";
 				}else if (counter == 6) {
 				player5Result = "BLACKJACK!!   ";
-			}}
+			}break;}
 			boolean noStayQuitOrHasBusted = true;
 		    while (noStayQuitOrHasBusted) {
 				if (playerUp.getHandValue() <= 21) {
