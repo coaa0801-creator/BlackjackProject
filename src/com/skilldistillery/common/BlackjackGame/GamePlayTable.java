@@ -73,6 +73,24 @@ public class GamePlayTable {
 			dealerCount++;
 		}
 			}	
+			if(seat2 != null){ 
+			int player2Count = 0;
+			for(int b = 16; b < topOfCard.length; b++) {
+				try {
+						topOfCard[b] = " ___ ";
+						cardNumUpLeft[b] =  player2.getHand().get(player2Count).getIdTop() + " |" ;
+						cardSuitMid[b] = "| " + player2.getHand().get(player2Count).getSuit() + " |";
+						cardNumBotRt[b] = "|_" + player2.getHand().get(player2Count).getIdBottom() + "|" ;
+						player2Count++; 
+				} catch (IndexOutOfBoundsException e) {
+					topOfCard[b] = "     ";
+					cardNumUpLeft[b] = "     ";
+					cardSuitMid[b] = "     ";
+					cardNumBotRt[b] = "     ";
+					player2Count++;
+				}
+				}
+			}	
 			
 		
 		
@@ -85,28 +103,28 @@ public class GamePlayTable {
 						+ "|                                             " + dealerName + "                                                |\n"
 						+ "|    " + player6Result + "                                                                          " + player1Result + " |\n"
 						+ "|                                        " + topOfCard[8] + " " + topOfCard[9] + " " + topOfCard[10] + " " + topOfCard[11] + "                    " + topOfCard[3] + " " + topOfCard[2] + " " + topOfCard[1] + " " + topOfCard[0] + " |\n" 
-						+ "|                                        " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
-						+ "|                                        " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
-						+ "|                                        " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
+						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                " + cardNumUpLeft[8] + " " + cardNumUpLeft[9] + " " + cardNumUpLeft[10] + " " + cardNumUpLeft[11] + "                    " + cardNumUpLeft[3] + " " + cardNumUpLeft[2] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[0] + " |\n"
+						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                " + cardSuitMid[8] + " " + cardSuitMid[9] + " " + cardSuitMid[10] + " " + cardSuitMid[11] + "                    " + cardSuitMid[3] + " " + cardSuitMid[2] + " " + cardSuitMid[1] + " " + cardSuitMid[0] + " |\n"
+						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                " + cardNumBotRt[8] + " " + cardNumBotRt[9] + " " + cardNumBotRt[10] + " " + cardNumBotRt[11] + "                    " + cardNumBotRt[3] + " " + cardNumBotRt[2] + " " + cardNumBotRt[1] + " " + cardNumBotRt[0] + " |\n"
+						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                                                   |\n"
+						+ "|                                                                                   " + topOfCard[7] + " " + topOfCard[6] + " " + topOfCard[5] + " " + topOfCard[4] + " |\n"
+						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                           " + cardNumUpLeft[7] + " " + cardNumUpLeft[6] + " " + cardNumUpLeft[5] + " " + cardNumUpLeft[4] + " |\n"
+						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + cardSuitMid[7] + " " + cardSuitMid[6] + " " + cardSuitMid[5] + " " + cardSuitMid[4] + " |\n"
+						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumBotRt[7] + " " + cardNumBotRt[6] + " " + cardNumBotRt[5] + " " + cardNumBotRt[4] + " |\n"
+						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                                                   |\n"
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
 						+ "|    " + player5Result + "                                                                          " + player2Result + " |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                          " + player4Result + "                               " + player3Result + "                      |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
-						+ "|                                                                                                           |\n"
+						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                                                   |\n"
+						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + " |\n"
+						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "      " + player4Result + "                   " + player3Result + "      " + cardNumUpLeft[19] + " " + cardNumUpLeft[18] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + " |\n"
+						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
+						+ "|                                                                                   " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + " |\n"
+						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                                                   |\n"
+						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + " |\n"
+						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumUpLeft[19] + " " + cardNumUpLeft[1] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + " |\n"
+						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
+						+ "|                                                                                   " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + " |\n"
 						+ "<===========================================================================================================>");
 
 	}
