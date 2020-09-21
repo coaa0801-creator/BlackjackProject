@@ -127,21 +127,21 @@ public class GamePlayTable {
 					}
 				}
 			}	
-			if(seat2 != null){ 
-				int player2Count = 0;
-				for(int b = 16; b < topOfCard.length; b++) {
+			if(seat5 != null){ 
+				int player5Count = 0;
+				for(int g = 56; g < topOfCard.length; g++) {
 					try {
-						topOfCard[b] = " ___ ";
-						cardNumUpLeft[b] =  player2.getHand().get(player2Count).getIdTop() + " |" ;
-						cardSuitMid[b] = "| " + player2.getHand().get(player2Count).getSuit() + " |";
-						cardNumBotRt[b] = "|_" + player2.getHand().get(player2Count).getIdBottom() + "|" ;
-						player2Count++; 
+						topOfCard[g] = " ___ ";
+						cardNumUpLeft[g] =  player5.getHand().get(player5Count).getIdTop() + " |" ;
+						cardSuitMid[g] = "| " + player5.getHand().get(player5Count).getSuit() + " |";
+						cardNumBotRt[g] = "|_" + player5.getHand().get(player5Count).getIdBottom() + "|" ;
+						player5Count++; 
 					} catch (IndexOutOfBoundsException e) {
-						topOfCard[b] = "     ";
-						cardNumUpLeft[b] = "     ";
-						cardSuitMid[b] = "     ";
-						cardNumBotRt[b] = "     ";
-						player2Count++;
+						topOfCard[g] = "     ";
+						cardNumUpLeft[g] = "     ";
+						cardSuitMid[g] = "     ";
+						cardNumBotRt[g] = "     ";
+						player5Count++;
 					}
 				}
 			}	
@@ -187,15 +187,15 @@ public class GamePlayTable {
 						+ "|                                                                                                           |\n"
 						+ "|                                                                                                           |\n"
 						+ "|    " + player5Result + "                                                                          " + player2Result + " |\n"
-						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                                                   |\n"
-						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + " |\n"
-						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "      " + player4Result + "                   " + player3Result + "      " + cardNumUpLeft[19] + " " + cardNumUpLeft[18] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + " |\n"
-						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
+						+ "| " + topOfCard[56] + " " + topOfCard[57] + " " + topOfCard[58] + " " + topOfCard[59] + "                                                                                   |\n"
+						+ "| " + cardNumUpLeft[56] + " " + cardNumUpLeft[57] + " " + cardNumUpLeft[58] + " " + cardNumUpLeft[59] + "                                                           " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + " |\n"
+						+ "| " + cardSuitMid[56] + " " + cardSuitMid[57] + " " + cardSuitMid[58] + " " + cardSuitMid[59] + "      " + player4Result + "                   " + player3Result + "      " + cardNumUpLeft[19] + " " + cardNumUpLeft[18] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + " |\n"
+						+ "| " + cardNumBotRt[56] + " " + cardNumBotRt[57] + " " + cardNumBotRt[58] + " " + cardNumBotRt[59] + "                                                           " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + " |\n"
 						+ "|                                                                                   " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + " |\n"
-						+ "| " + topOfCard[19] + " " + topOfCard[18] + " " + topOfCard[17] + " " + topOfCard[16] + "                                                                                   |\n"
-						+ "| " + cardNumUpLeft[19] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[17] + " " + cardNumUpLeft[16] + "                                                           " + topOfCard[23] + " " + topOfCard[22] + " " + topOfCard[21] + " " + topOfCard[20] + " |\n"
-						+ "| " + cardSuitMid[19] + " " + cardSuitMid[18] + " " + cardSuitMid[17] + " " + cardSuitMid[16] + "                                                           " + cardNumUpLeft[23] + " " + cardNumUpLeft[22] + " " + cardNumUpLeft[21] + " " + cardNumUpLeft[20] + " |\n"
-						+ "| " + cardNumBotRt[19] + " " + cardNumBotRt[18] + " " + cardNumBotRt[17] + " " + cardNumBotRt[16] + "                                                           " + cardSuitMid[23] + " " + cardSuitMid[22] + " " + cardSuitMid[21] + " " + cardSuitMid[20] + " |\n"
+						+ "| " + topOfCard[60] + " " + topOfCard[61] + " " + topOfCard[62] + " " + topOfCard[63] + "                                                                                   |\n"
+						+ "| " + cardNumUpLeft[60] + " " + cardNumUpLeft[61] + " " + cardNumUpLeft[62] + " " + cardNumUpLeft[63] + "                                                           " + topOfCard[23] + " " + topOfCard[22] + " " + topOfCard[21] + " " + topOfCard[20] + " |\n"
+						+ "| " + cardSuitMid[60] + " " + cardSuitMid[61] + " " + cardSuitMid[62] + " " + cardSuitMid[63] + "                                                           " + cardNumUpLeft[23] + " " + cardNumUpLeft[22] + " " + cardNumUpLeft[21] + " " + cardNumUpLeft[20] + " |\n"
+						+ "| " + cardNumBotRt[60] + " " + cardNumBotRt[61] + " " + cardNumBotRt[62] + " " + cardNumBotRt[63] + "                                                           " + cardSuitMid[23] + " " + cardSuitMid[22] + " " + cardSuitMid[21] + " " + cardSuitMid[20] + " |\n"
 						+ "|                                                                                   " + cardNumBotRt[23] + " " + cardNumBotRt[22] + " " + cardNumBotRt[21] + " " + cardNumBotRt[20] + " |\n"
 						+ "<===========================================================================================================>");
 
