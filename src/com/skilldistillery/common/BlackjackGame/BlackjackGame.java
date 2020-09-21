@@ -656,7 +656,7 @@ public class BlackjackGame {
 				}else if (counter == 5) {
 					player5Result = "BLACKJACK!!   ";
 				}else if (counter == 6) {
-				player5Result = "BLACKJACK!!   ";
+				player6Result = "BLACKJACK!!   ";
 			}break;}
 			boolean noStayQuitOrHasBusted = true;
 		    while (noStayQuitOrHasBusted) {
