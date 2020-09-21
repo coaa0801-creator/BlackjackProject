@@ -391,6 +391,9 @@ public class BlackjackGame {
 			dealerNoShow = false;
 		
 			this.dealer = table1Dealer.Play(dealer);
+			if (this.dealer.getHandValue() > 21) {
+				dealerName = "DEALER BUSTED!";
+			}
 			compareHands();
 			table.showCurrentTable(startNumCards, this.player1, this.player2, this.player3, this.player4, this.player5,
 					this.player6, dealer, dealerNoShow, player1Result, player2Result, player3Result, player4Result,
@@ -414,7 +417,8 @@ public class BlackjackGame {
 	}
 
 	private void dealerHasBlackjack(boolean player2, boolean player3, boolean player4, boolean player5, boolean player6) {
-         if (player1.getHandValue() != 21) {
+        dealerName = "   BLACKJACK  "; 
+		if (player1.getHandValue() != 21) {
         	 player1Result = "YOU LOSE      ";
          }
 		
